@@ -1,0 +1,17 @@
+<div id="draggable" style="width:100px;height:100px;background-color:pink;"></div>
+
+<script>
+    let draggable = document.getElementById('draggable');
+
+    draggable.addEventListener('mousedown', () => {
+        let move = event => {
+            console.log(event);
+        }
+        let up = () => {
+            document.removeEventListener('mousemove', move);
+            document.removeEventListener('mouseup', up);
+        }
+        document.addEventListener('mousemove', move);
+        document.addEventListener('mouseup', up);
+    });
+</script>
